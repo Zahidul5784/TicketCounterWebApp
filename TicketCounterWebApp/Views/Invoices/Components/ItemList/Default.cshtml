@@ -1,0 +1,52 @@
+﻿﻿
+@model List<TicketInfo>
+<table class="table table-responsive table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Destination
+            </th>
+            <th>
+                Unit Price
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Total Price
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>
+                   
+                    <input asp-for="@Model[i].Destination" class="form-control" />
+                </td>
+                <td>
+                    <input asp-for="@Model[i].UnitPrice" class="form-control" />
+                </td>
+                <td>
+                    <input asp-for="@Model[i].Quantity" class="form-control" />
+                </td>
+                <td>
+                    <input asp-for="@Model[i].TotalPrice" class="form-control" readonly />
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<tfoot>
+	<tr>
+		<td colspan="4">
+			Invoice Total = @ViewBag.Total and No of TicketInfo is @ViewBag.Count
+		</td>
+	</tr>
+</tfoot>
